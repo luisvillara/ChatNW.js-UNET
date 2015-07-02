@@ -9,9 +9,11 @@ body{
 
 .chat-history{
   height: 580px;
+  overflow-y: scroll;
 }
 
 .message-input{
   padding-right: 0;
   font-size: 1.2em;
 }
+
