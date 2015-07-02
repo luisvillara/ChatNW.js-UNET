@@ -10,8 +10,8 @@ var network = {
     this.address = multicastAddress;
     this.port = port;
 
-
-    socket.bind(port,function(){
+    //Some changes
+    socket.bind(port,'::',function(){
 
       socket.setMulticastTTL(128);
       socket.addMembership(multicastAddress,ip);
