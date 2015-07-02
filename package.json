@@ -1,0 +1,26 @@
+{
+  "name": "chatJS",
+  "single-instance": false,
+  "main": "index.html",
+  "window": {
+    "width": 1000,
+    "height": 700,
+    "toolbar": true
+  },
+  "version": "0.0.1",
+  "description": "Chat IPv6 in NWJS",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chatjs",
+    "nwjs",
+    "IPv6"
+  ],
+  "author": "Jose Roa",
+  "license": "APACHE 2.0",
+  "dependencies": {
+    "my-ip": "^1.1.1",
+    "underscore": "^1.8.3"
+  }
+}

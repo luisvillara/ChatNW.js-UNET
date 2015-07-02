@@ -1,0 +1,17 @@
+@import url("bootstrap.min.css");
+@import url("material.min.css");
+@import url("ripples.min.css");
+@import url("roboto.min.css");
+
+body{
+  overflow-x: hidden;
+}
+
+.chat-history{
+  height: 580px;
+}
+
+.message-input{
+  padding-right: 0;
+  font-size: 1.2em;
+}
