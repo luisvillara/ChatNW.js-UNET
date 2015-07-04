@@ -30,6 +30,37 @@ var network = {
     };
 
     return this;
+  },
+  unicast : function(port, destinationIP){
+    var myIP = require('my-ip');
+    var dgram = require('dgram')
+    var socket = dgram.createSocket('udp6');
+    var ip = myIP('IPv6');
+    var destIP = destinationIP;
+
+    this.socket = socket;
+    this.address = ip;
+    this.port = port;
+
+    // Se hace el bind de la ip y el puerto
+    // Usando la opcion exclusive para apartar un puerto especifico
+    // Simulando un unicast
+    socket.bind({
+      address:destinationIP,
+      port: port,
+      exclusive : true
+    });
+
+    this.send = function(message,destinationPort){
+      var data = new Buffer(message);
+      socket.send(data,0,data.length,destinationPort,destinationIP,function(err){
+        if(err) throw err;
+        //console.log('message sended:' + message);
+      });
+    };
+
+    return this;
   }
+
 
 };

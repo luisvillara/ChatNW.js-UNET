@@ -1,10 +1,21 @@
 var _ = require('underscore');
+var myIP = require('my-ip');
 var multicast = network.multicast(5000);
 var room = global.infoChat.room;
 var user = global.infoChat.user;
 var usersConnected = [];
 usersConnected = room.users;
 
+
+var clientIP = myIP('IPv6');  //Se guarda la ip del cliente
+var portList = [];  //Array para guardar lista de puertos usados
+var randPort = _.random(2000, 65000); //Se genera un numero random de puertos
+var unicast;
+if (! _.findWhere(portList, randPort)){   //Se comprueba que el puerto no se este usando
+  portList.push(randPort);
+  unicast = network.unicast(randPort, clientIP);
+}
+console.log(portList);
 console.log(usersConnected);
 
 var template = {
