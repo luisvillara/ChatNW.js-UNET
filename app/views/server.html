@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - </title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+<div class="row">
+  <div class="col-md-8">
+    <div class="col-md-12 chat-history" id="messages">
+    </div>
+    <div class="col-md-12 group-message-input">
+      <div class="well">
+        <form class="form-group">
+          <input type="text" class="form-control input-md" id="input">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4>Usuarios Conectados</h4>
+      </div>
+      <div class="panel-body" style="height:580px;">
+        <ul class="nav nav-pills nav-stacked" id="users">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../../vendors/jquery-1.11.3.min.js"></script>
+<script src="../../vendors/bootstrap.min.js"></script>
+<script src="../../vendors/material.min.js"></script>
+<script src="../../vendors/ripples.min.js"></script>
+<script src="../../vendors/bootbox.min.js"></script>
+
+<script src="../core/network.js"></script>
+<script src="../core/server.js"></script>
+
+<script>
+  var gui = require('nw.gui');
+  var win = gui.Window.get();
+
+  win.on('close',function(){
+    var self = this;
+    self.hide();
+    clearInterval(intervalToAnnounceRoom);
+
+
+    var msg = new MessageFactory.getDisconectMessage();
+    udp.sendMulticast(msg.toString(),port);
+
+    setTimeout(function(){
+      udp.socket.close();
+      self.close(true);
+    }, 1000);
+
+  });
+</script>
+</body>
+</html>

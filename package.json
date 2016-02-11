@@ -1,11 +1,11 @@
 {
   "name": "chatJS",
   "single-instance": false,
-  "main": "index.html",
+  "main": "app/views/index.html",
   "window": {
     "width": 1000,
     "height": 700,
-    "toolbar": true
+    "toolbar": false
   },
   "version": "0.0.1",
   "description": "Chat IPv6 in NWJS",
@@ -21,6 +21,7 @@
   "license": "APACHE 2.0",
   "dependencies": {
     "MD5": "^1.2.2",
+    "jquery": "^2.1.4",
     "my-ip": "^1.1.1",
     "underscore": "^1.8.3"
   }

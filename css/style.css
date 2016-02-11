@@ -10,9 +10,26 @@ body{
 .chat-history{
   height: 580px;
   overflow-y: scroll;
+
 }
 
-.message-input{
+.single{
+  height: 450px;
+}
+
+.full{
+  width: 95%;
+  margin: 1em;
+}
+
+.alert{
+  width: 80%;
+}
+.pull-rigth{
+  float: right !important;
+}
+
+.group-message-input{
   padding-right: 0;
   font-size: 1.2em;
 }
